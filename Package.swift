@@ -16,6 +16,9 @@ let package = Package(
             targets: ["TypeExtensionHelpers"]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.2.0")
+    ],
     targets: [
         .target(
             name: "NetworkHelpers",
@@ -32,5 +35,5 @@ let package = Package(
             ]
         )
     ],
-    swiftLanguageVersions: [.version("5.5")]
+    swiftLanguageVersions: [.v5]
 )
