@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 定義發出 Http Request 後，收到 Response 的 Http Status Code
 public struct HttpStatus {
     
     public enum Code: Int {
@@ -78,7 +79,7 @@ public struct HttpStatus {
         case temporaryRedirect = 307
         
         /// Http Status Code 308
-        case PermanentRedirect = 308
+        case permanentRedirect = 308
         
         // MARK: Status Code 4xx
         
@@ -260,7 +261,7 @@ extension HttpStatus.Code: CustomStringConvertible {
             return base + "Not Modified"
         case .temporaryRedirect:
             return base + "Temporary Redirect"
-        case .PermanentRedirect:
+        case .permanentRedirect:
             return base + "Permanent Redirect"
         case .badRequest:
             return base + "Bad Request"
