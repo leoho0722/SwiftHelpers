@@ -11,6 +11,10 @@ let package = Package(
             name: "NetworkHelpers",
             targets: ["NetworkHelpers"]
         ),
+        .library(
+            name: "TypeExtensionHelpers",
+            targets: ["TypeExtensionHelpers"]
+        )
     ],
     targets: [
         .target(
@@ -20,6 +24,13 @@ let package = Package(
                 .linkedFramework("Foundation")
             ]
         ),
+        .target(
+            name: "TypeExtensionHelpers",
+            path: "Sources/TypeExtensionHelpers",
+            linkerSettings: [
+                .linkedFramework("Foundation")
+            ]
+        )
     ],
     swiftLanguageVersions: [.version("5.5")]
 )
