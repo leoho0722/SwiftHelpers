@@ -70,6 +70,40 @@ public struct Base64Coder {
         }
     }
     
+    /// 將 base64 編碼字串解碼成 `Data`
+    ///
+    /// [enum Base64DecodeError](x-source-tag://Base64DecodeError)
+    ///
+    /// - Parameters:
+    ///   - base64Encoded: base64 編碼字串
+    /// - Throws: ``Base64DecodeError``
+    /// - Returns: 透過 base64 編碼字串初始化的 `Data`
+    public static func base64DecodedData(base64Encoded: String) throws -> Data {
+        guard let base64DecodedData = Data(base64Encoded: base64Encoded) else {
+            throw Base64DecodeError.decodeFailed
+        }
+        
+        return base64DecodedData
+    }
+    
+    /// 將 base64URL 編碼字串解碼成 `Data`
+    ///
+    /// [enum Base64DecodeError](x-source-tag://Base64DecodeError)
+    ///
+    /// - Parameters:
+    ///   - base64URLEncoded: base64URL 編碼字串
+    /// - Throws: ``Base64DecodeError``
+    /// - Returns: 透過 base64URL 編碼字串初始化的 `Data`
+    public static func base64URLDecodedData(base64URLEncoded: String) throws -> Data {
+        let base64 = Base64Coder.base64EncodedString(base64URL: base64URLEncoded)
+        
+        guard let base64URLDecodedData = Data(base64Encoded: base64) else {
+            throw Base64DecodeError.decodeFailed
+        }
+        
+        return base64URLDecodedData
+    }
+    
     /// 將 base64 編碼字串進行解碼
     ///
     /// [enum Base64DecodeError](x-source-tag://Base64DecodeError)
