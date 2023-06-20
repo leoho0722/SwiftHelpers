@@ -14,7 +14,11 @@ let package = Package(
         .library(
             name: "TypeExtensionHelpers",
             targets: ["TypeExtensionHelpers"]
-        )
+        ),
+        .library(
+            name: "UIHelpers",
+            targets: ["UIHelpers"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.2.0")
@@ -32,6 +36,13 @@ let package = Package(
             path: "Sources/TypeExtensionHelpers",
             linkerSettings: [
                 .linkedFramework("Foundation")
+            ]
+        ),
+        .target(
+            name: "UIHelpers",
+            path: "Sources/UIHelpers",
+            linkerSettings: [
+                .linkedFramework("UIKit")
             ]
         )
     ],
