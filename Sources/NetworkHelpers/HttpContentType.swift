@@ -1,6 +1,6 @@
 //
 //  HttpContentType.swift
-//  SwiftHelpers/NetworkHelpers
+//  SwiftHelpers/NetworkHelpers
 //
 //  Created by Leo Ho on 2023/6/14.
 //
