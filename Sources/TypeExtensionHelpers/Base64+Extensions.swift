@@ -1,5 +1,5 @@
 //
-//  Base64.swift
+//  Base64+Extensions.swift
 //  SwiftHelpers/TypeExtensionHelpers
 //
 //  Created by Leo Ho on 2023/6/14.
