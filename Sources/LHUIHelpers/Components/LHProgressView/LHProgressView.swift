@@ -1,5 +1,5 @@
 //
-//  SHUHProgressView.swift
+//  LHProgressView.swift
 //  SwiftHelpers/LHUIHelpers
 //
 //  Created by Leo Ho on 2023/6/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class SHUHProgressView: UIView {
+public class LHProgressView: UIView {
     
     // MARK: Public Properties
     
@@ -90,7 +90,7 @@ public class SHUHProgressView: UIView {
 
 // MARK: - Private Method
 
-private extension SHUHProgressView {
+private extension LHProgressView {
     
     func configure() {
         frame = CGRect(x: 0, y: 0, width: 250, height: 250)

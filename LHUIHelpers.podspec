@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.author        = { "leoho0722" => "leo160918@gmail.com" }
   spec.platform      = :ios, "15.0"
   spec.source        = { :git => "https://github.com/leoho0722/SwiftHelpers.git", :tag => "#{spec.version}" }
-  spec.source_files  = "Sources/LHUIHelpers/**/*.swift"
+  spec.source_files  = "Sources/LHUIHelpers/**/*.{swift, xib}"
   spec.exclude_files = "*.sh"
   spec.frameworks    = "UIKit"
   spec.swift_version = '5.5'
