@@ -8,16 +8,16 @@ let package = Package(
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "NetworkHelpers",
-            targets: ["NetworkHelpers"]
+            name: "LHNetworkHelpers",
+            targets: ["LHNetworkHelpers"]
         ),
         .library(
-            name: "TypeExtensionHelpers",
-            targets: ["TypeExtensionHelpers"]
+            name: "LHTypeExtensionHelpers",
+            targets: ["LHTypeExtensionHelpers"]
         ),
         .library(
-            name: "UIHelpers",
-            targets: ["UIHelpers"]
+            name: "LHUIHelpers",
+            targets: ["LHUIHelpers"]
         ),
     ],
     dependencies: [
@@ -25,22 +25,22 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "NetworkHelpers",
-            path: "Sources/NetworkHelpers",
+            name: "LHNetworkHelpers",
+            path: "Sources/LHNetworkHelpers",
             linkerSettings: [
                 .linkedFramework("Foundation")
             ]
         ),
         .target(
-            name: "TypeExtensionHelpers",
-            path: "Sources/TypeExtensionHelpers",
+            name: "LHTypeExtensionHelpers",
+            path: "Sources/LHTypeExtensionHelpers",
             linkerSettings: [
                 .linkedFramework("Foundation")
             ]
         ),
         .target(
-            name: "UIHelpers",
-            path: "Sources/UIHelpers",
+            name: "LHUIHelpers",
+            path: "Sources/LHUIHelpers",
             linkerSettings: [
                 .linkedFramework("UIKit")
             ]

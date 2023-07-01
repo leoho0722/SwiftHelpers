@@ -1,6 +1,6 @@
 //
 //  SHUHProgressView.swift
-//  SwiftHelpers/UIHelpers
+//  SwiftHelpers/LHUIHelpers
 //
 //  Created by Leo Ho on 2023/6/20.
 //
