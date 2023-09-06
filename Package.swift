@@ -35,7 +35,8 @@ let package = Package(
             name: "LHTypeExtensionHelpers",
             path: "Sources/LHTypeExtensionHelpers",
             linkerSettings: [
-                .linkedFramework("Foundation")
+                .linkedFramework("Foundation"),
+                .linkedFramework("UIKit")
             ]
         ),
         .target(
