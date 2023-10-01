@@ -19,6 +19,10 @@ let package = Package(
             name: "LHUIHelpers",
             targets: ["LHUIHelpers"]
         ),
+        .library(
+            name: "LHSFSymbolsHelpers",
+            targets: ["LHSFSymbolsHelpers"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0")
@@ -26,17 +30,13 @@ let package = Package(
     targets: [
         .target(
             name: "LHNetworkHelpers",
-            path: "Sources/LHNetworkHelpers",
-            linkerSettings: [
-                .linkedFramework("Foundation")
-            ]
+            path: "Sources/LHNetworkHelpers"
         ),
         .target(
             name: "LHTypeExtensionHelpers",
             path: "Sources/LHTypeExtensionHelpers",
             linkerSettings: [
-                .linkedFramework("Foundation"),
-                .linkedFramework("UIKit")
+                .linkedFramework("UIKit"),
             ]
         ),
         .target(
@@ -44,6 +44,14 @@ let package = Package(
             path: "Sources/LHUIHelpers",
             linkerSettings: [
                 .linkedFramework("UIKit")
+            ]
+        ),
+        .target(
+            name: "LHSFSymbolsHelpers",
+            path: "Sources/LHSFSymbolsHelpers",
+            linkerSettings: [
+                .linkedFramework("SwiftUI"),
+                .linkedFramework("UIKit"),
             ]
         )
     ],
