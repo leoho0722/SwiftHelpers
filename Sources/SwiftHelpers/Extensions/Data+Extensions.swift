@@ -10,7 +10,7 @@ import Foundation
 public extension Data {
     
     /// 將 Data 轉為 16 進制字串
-    /// - Returns: `String` with hexadecimal
+    /// - Returns: 16 進制字串
     func toHexString() -> String {
         return map {
             String(format: "%02x", $0)
