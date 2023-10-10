@@ -1,6 +1,6 @@
 //
 //  UIImage+Extensions.swift
-//  SwiftHelpers/LHSFSymbolsHelpers
+//  SwiftHelpers/Extensions
 //
 //  Created by Leo Ho on 2023/10/2.
 //

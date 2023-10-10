@@ -1,6 +1,6 @@
 //
 //  UIDevice+Extensions.swift
-//  SwiftHelpers/LHTypeExtensionHelpers
+//  SwiftHelpers/Extensions
 //
 //  Created by Leo Ho on 2023/7/1.
 //

@@ -1,6 +1,6 @@
 //
 //  SFSymbols.swift
-//  SwiftHelpers/LHSFSymbolsHelpers
+//  SwiftHelpers/SFSymbols
 //
 //  Created by Leo Ho on 2023/10/1.
 //

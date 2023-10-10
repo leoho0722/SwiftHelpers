@@ -1,6 +1,6 @@
 //
-//  BytesArray+Extensions.swift
-//  SwiftHelpers/LHTypeExtensionHelpers
+//  BytesArray.swift
+//  SwiftHelpers/Type
 //
 //  Created by Leo Ho on 2023/6/15.
 //
@@ -11,7 +11,6 @@ public struct BytesArrayConvertor {
     
     /// typealias to `Array<UInt8>`
     public typealias BytesArray = Array<UInt8>
-    
     
     /// 將 16 進制字串轉為 BytesArray
     ///
@@ -68,7 +67,7 @@ public struct BytesArrayConvertor {
     /// - Parameters:
     ///   - byteArray: ``BytesArray``
     /// - Returns: 16 進制字串
-    public static func bytesArrayToHexString(from byteArray: BytesArray) -> String {
+    public static func toHexString(from byteArray: BytesArray) -> String {
         return Data(bytes: byteArray, count: byteArray.count).toHexString()
     }
 }

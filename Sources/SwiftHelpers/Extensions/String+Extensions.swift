@@ -1,24 +1,21 @@
 //
-//  Hexadecimal+Extensions.swift
-//  SwiftHelpers/LHTypeExtensionHelpers
+//  StringSizeCalculator.swift
+//  SwiftHelpers/Extensions
 //
-//  Created by Leo Ho on 2023/6/15.
+//  Created by Leo Ho on 2023/6/23.
 //
 
-import Foundation
-
-public extension Data {
-    
-    /// 將 Data 轉為 16 進制字串
-    /// - Returns: `String` with hexadecimal
-    func toHexString() -> String {
-        return map {
-            String(format: "%02x", $0)
-        }.joined()
-    }
-}
+import UIKit
 
 public extension String {
+    
+    /// 計算字的大小
+    /// - Parameters:
+    ///   - font: 字體
+    /// - Returns: 字的大小
+    func size(with font: UIFont) -> CGSize {
+        return NSString(string: self).size(withAttributes: [.font : font])
+    }
     
     /// 將 16 進制字串轉為 Data
     /// - Throws: ``NSError``

@@ -8,20 +8,8 @@ let package = Package(
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "LHNetworkHelpers",
-            targets: ["LHNetworkHelpers"]
-        ),
-        .library(
-            name: "LHTypeExtensionHelpers",
-            targets: ["LHTypeExtensionHelpers"]
-        ),
-        .library(
-            name: "LHUIHelpers",
-            targets: ["LHUIHelpers"]
-        ),
-        .library(
-            name: "LHSFSymbolsHelpers",
-            targets: ["LHSFSymbolsHelpers"]
+            name: "SwiftHelpers",
+            targets: ["SwiftHelpers"]
         ),
     ],
     dependencies: [
@@ -29,26 +17,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "LHNetworkHelpers",
-            path: "Sources/LHNetworkHelpers"
-        ),
-        .target(
-            name: "LHTypeExtensionHelpers",
-            path: "Sources/LHTypeExtensionHelpers",
-            linkerSettings: [
-                .linkedFramework("UIKit"),
-            ]
-        ),
-        .target(
-            name: "LHUIHelpers",
-            path: "Sources/LHUIHelpers",
-            linkerSettings: [
-                .linkedFramework("UIKit")
-            ]
-        ),
-        .target(
-            name: "LHSFSymbolsHelpers",
-            path: "Sources/LHSFSymbolsHelpers",
+            name: "SwiftHelpers",
+            path: "Sources/SwiftHelpers",
             linkerSettings: [
                 .linkedFramework("SwiftUI"),
                 .linkedFramework("UIKit"),
