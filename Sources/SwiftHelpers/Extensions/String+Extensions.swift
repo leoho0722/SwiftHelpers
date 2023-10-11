@@ -1,5 +1,5 @@
 //
-//  StringSizeCalculator.swift
+//  String+Extensions.swift
 //  SwiftHelpers/Extensions
 //
 //  Created by Leo Ho on 2023/6/23.
@@ -18,7 +18,7 @@ public extension String {
     }
     
     /// 將 16 進制字串轉為 Data
-    /// - Throws: ``NSError``
+    /// - Throws: NSError
     /// - Returns: nil or `Data` with hexadecimal
     func toHexData() throws -> Data? {
         var data = Data(capacity: self.count / 2)
