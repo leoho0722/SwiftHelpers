@@ -9,7 +9,7 @@ Use Swift to create some amazing things!
 
 * iOS 15.0 or above
 
-## Package Developement Environment
+## Package Development Environment
 
 * macOS Sonoma 14.1 (23B74)
 * Xcode 15.0.1 (15A507)
@@ -23,7 +23,7 @@ Currently only installation using Swift Package Manager is supported.
 https://github.com/leoho0722/SwiftHelpers.git
 ```
 
-![Install](/Assets/Install.png)
+![Install](./Assets/Install.png)
 
 ## How to use
 
