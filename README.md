@@ -16,6 +16,12 @@ Use Swift to create some amazing things!
 
 Currently only installation using Swift Package Manager is supported.
 
+```git
+https://github.com/leoho0722/SwiftHelpers.git
+```
+
+![Install](/Assets/Install.png)
+
 ## How to use
 
 ### Example: Convert to JSON Data
