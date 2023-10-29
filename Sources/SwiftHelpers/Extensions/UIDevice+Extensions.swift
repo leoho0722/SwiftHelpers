@@ -9,8 +9,8 @@ import UIKit
 
 public extension UIDevice {
     
-    /// Device's modelname
-    /// - Returns: Like `iPhone12,8`
+    /// The model name of this device
+    /// - Returns: Like `iPhone15,5`
     var modelname: String {
         var systemInfo = utsname()
         uname(&systemInfo)
@@ -20,8 +20,8 @@ public extension UIDevice {
         return name
     }
     
-    /// Device's devicename
-    /// - Returns: Like `iPhone SE (2nd generation)`
+    /// The device name of this device
+    /// - Returns: Like `iPhone 15 Plus`
     var devicename: String {
         switch modelname {
             // MARK: iPhone
@@ -122,6 +122,15 @@ public extension UIDevice {
             return "iPhone 14 Pro"
         case "iPhone15,3":
             return "iPhone 14 Pro Max"
+            // MARK: iPhone 15／iPhone 15 Pro Series
+        case "iPhone15,4":
+            return "iPhone 15"
+        case "iPhone15,5":
+            return "iPhone 15 Plus"
+        case "iPhone16,1":
+            return "iPhone 15 Pro"
+        case "iPhone16,2":
+            return "iPhone 15 Pro Max"
             // MARK: iPod Touch Series
         case "iPod1,1":
             return "iPod Touch"
@@ -182,27 +191,35 @@ public extension UIDevice {
             return "iPad Air (4th generation)"
         case "iPad13,16", "iPad13,17":
             return "iPad Air (5th generation)"
-            // MARK: iPad Pro Series
-        case "iPad6,7", "iPad6,8":
-            return "iPad Pro (12.9-inch)"
+            // MARK: iPad Pro (9.7-inch) Series
         case "iPad6,3", "iPad6,4":
             return "iPad Pro (9.7-inch)"
-        case "iPad7,1", "iPad7,2":
-            return "iPad Pro (12.9-inch) (2nd generation)"
+            // MARK: iPad Pro (10.5-inch) Series
         case "iPad7,3", "iPad7,4":
             return "iPad Pro (10.5-inch)"
+            // MARK: iPad Pro (11-inch) Series
         case "iPad8,1", "iPad8,2", "iPad8,3", "iPad8,4":
             return "iPad Pro (11-inch)"
-        case "iPad8,5", "iPad8,6", "iPad8,7", "iPad8,8":
-            return "iPad Pro (12.9-inch) (3rd generation)"
         case "iPad8,9", "iPad8,10":
             return "iPad Pro (11-inch) (2nd generation)"
-        case "iPad8,11", "iPad8,12":
-            return "iPad Pro (12.9-inch) (4th generation)"
         case "iPad13,4", "iPad13,5", "iPad13,6", "iPad13,7":
             return "iPad Pro (11-inch) (3rd generation)"
+        case "iPad14,3", "iPad14,4":
+            return "iPad Pro (11-inch) (4th generation)"
+            // MARK: iPad Pro (12.9-inch) Series
+        case "iPad6,7", "iPad6,8":
+            return "iPad Pro (12.9-inch)"
+        case "iPad7,1", "iPad7,2":
+            return "iPad Pro (12.9-inch) (2nd generation)"
+        case "iPad8,5", "iPad8,6", "iPad8,7", "iPad8,8":
+            return "iPad Pro (12.9-inch) (3rd generation)"
+        case "iPad8,11", "iPad8,12":
+            return "iPad Pro (12.9-inch) (4th generation)"
         case "iPad13,8", "iPad13,9", "iPad13,10", "iPad13,11":
             return "iPad Pro (12.9-inch) (5th generation)"
+        case "iPad14,5", "iPad14,6":
+            return "iPad Pro (12.9-inch) (6th generation)"
+            // MARK: Simulator
         case "i386", "x86_64", "arm64":
             return "Simulator"
         default:
