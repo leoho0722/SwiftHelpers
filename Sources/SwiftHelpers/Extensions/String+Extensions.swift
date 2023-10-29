@@ -9,15 +9,15 @@ import UIKit
 
 public extension String {
     
-    /// 計算字的大小
+    /// Calculate word size
     /// - Parameters:
-    ///   - font: 字體
-    /// - Returns: 字的大小
+    ///   - font: font
+    /// - Returns: word size
     func size(with font: UIFont) -> CGSize {
         return NSString(string: self).size(withAttributes: [.font : font])
     }
     
-    /// 將 16 進制字串轉為 Data
+    /// Convert hexadecimal string to Data
     /// - Throws: NSError
     /// - Returns: nil or `Data` with hexadecimal
     func toHexData() throws -> Data? {
