@@ -17,6 +17,9 @@ let package = Package(
         .target(
             name: "SwiftHelpers",
             path: "Sources/SwiftHelpers",
+            exclude: [
+                "../../build-documentation.sh"
+            ],
             linkerSettings: [
                 .linkedFramework("SwiftUI"),
                 .linkedFramework("UIKit"),
