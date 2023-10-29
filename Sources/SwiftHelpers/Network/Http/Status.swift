@@ -7,9 +7,9 @@
 
 import Foundation
 
-/// 定義發出 HTTP Request 後，收到 Response 的 HTTP Status
 public extension HTTP {
     
+    /// Define HTTP Status of HTTP Response
     enum HTTPStatus: Error, CustomStringConvertible {
         
         // MARK: Status Code 1xx
@@ -272,7 +272,7 @@ public extension HTTP {
         }
         
         public var description: String {
-            let base = "HTTP Status Code：\(self.statusCode) "
+            let base = "HTTP Status Code: \(self.statusCode) "
             switch self {
             case .continue:
                 return base + "Continue"

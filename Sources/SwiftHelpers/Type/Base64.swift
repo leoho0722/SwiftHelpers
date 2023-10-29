@@ -10,35 +10,35 @@ import Foundation
 /// Base64 Encoder / Decoder
 public struct Base64 {
     
-    /// 選擇要進行的 base64／base64URL 轉換操作
+    /// Select the base64/base64URL conversion operation to perform
     public enum Base64Operation {
         
-        /// 進行 base64 轉換操作
+        /// Perform base64 conversion operations
         case base64
         
-        /// 進行 base64 URL 轉換操作
+        /// Perform base64URL conversion operations
         case base64URL
     }
     
     // MARK: - Base64 Encode
     
-    /// 將 base64／base64URL 編碼字串轉換成 base64URL／base64 編碼字串
+    /// Convert base64 / base64URL encoded string to base64URL / base64 encoded string
     /// - Parameters:
-    ///   - str:  base64／base64URL 編碼字串
-    ///   - operation: ``Base64Operation``，進行 base64／base64URL 轉換操作
-    /// - Returns: base64URL／base64 編碼字串
+    ///   - str:  base64 / base64URL encoded string
+    ///   - operation: ``Base64Operation``, perform base64 / base64URL conversion operation
+    /// - Returns: base64URL / base64 encoded string
     public static func base64EncodedString(from str: String,
                                            operation: Base64.Base64Operation) -> String {
         var result: String
         
         switch operation {
         case .base64:
-            // 將 base64URL 編碼字串轉成 base64 編碼字串
+            // Convert base64URL encoded string to base64 encoded string
             result = str
                 .replacingOccurrences(of: "-", with: "+")
                 .replacingOccurrences(of: "_", with: "/")
         case .base64URL:
-            // 將 base64 編碼字串轉成 base64URL 編碼字串
+            // Convert base64 encoded string to base64URL encoded string
             result = str
                 .replacingOccurrences(of: "+", with: "-")
                 .replacingOccurrences(of: "/", with: "_")
@@ -54,49 +54,47 @@ public struct Base64 {
     
     // MARK: - Base64 Decode
     
-    /// 定義 base64 解碼過程中可能發生的錯誤
+    /// Defines errors that may occur during base64 decoding
     /// - Tag: Base64DecodeError
     public enum Base64DecodeError: Error, CustomStringConvertible {
         
-        /// base64 解碼失敗
+        /// base64 decoding failed
         case decodeFailed
         
-        /// 字串 UTF8 編碼失敗
+        /// String UTF8 encoding failed
         case stringUTF8EncodeFailed
         
         public var description: String {
-            let base = "Base64 Decode Failed - "
+            let base = "Base64 Decode Failed: "
             
             switch self {
             case .decodeFailed:
-                return base + "base64 解碼失敗"
+                return base + "base64 decoding failed"
             case .stringUTF8EncodeFailed:
-                return base + "字串 UTF8 編碼失敗"
+                return base + "String UTF8 encoding failed"
             }
         }
     }
     
-    /// 將 base64／base64URL 編碼字串解碼成 `Data`
-    ///
-    /// [enum Base64DecodeError](x-source-tag://Base64DecodeError)
+    /// Decode base64 / base64URL encoded string into `Data`
     ///
     /// - Parameters:
-    ///   - str: base64／base64URL 編碼字串
-    ///   - operation: ``Base64Operation``，進行 base64／base64URL 轉換操作
+    ///   - str: base64 / base64URL encoded string
+    ///   - operation: ``Base64Operation``, perform base64 / base64URL conversion operation
     /// - Throws: ``Base64DecodeError``
-    /// - Returns: 透過 base64／base64URL 編碼字串初始化的 `Data`
+    /// - Returns: `Data` initialized via base64 / base64URL encoded string
     public static func base64DecodedData(from str: String,
                                          operation: Base64.Base64Operation) throws -> Data {
         switch operation {
         case .base64:
-            // 將 base64 編碼字串解碼成 Data
+            // Decode base64 encoded string into Data
             guard let base64DecodedData = Data(base64Encoded: str) else {
                 throw Base64DecodeError.decodeFailed
             }
             
             return base64DecodedData
         case .base64URL:
-            // 將 base64URL 編碼字串解碼成 Data
+            // Decode base64URL encoded string into Data
             let base64 = Base64.base64EncodedString(from: str, operation: .base64)
             
             guard let base64URLDecodedData = Data(base64Encoded: base64) else {
@@ -107,20 +105,18 @@ public struct Base64 {
         }
     }
     
-    /// 將 base64／base64URL 編碼字串解碼成 UTF-8 編碼字串
-    ///
-    /// [enum Base64DecodeError](x-source-tag://Base64DecodeError)
+    /// Decode base64 / base64URL encoded string into UTF-8 encoded string
     ///
     /// - Parameters:
-    ///   - str: base64／base64URL 編碼字串
-    ///   - operation: ``Base64Operation``，進行 base64／base64URL 轉換操作
+    ///   - str: base64 / base64URL encoded string
+    ///   - operation: ``Base64Operation``, perform base64 / base64URL conversion operation
     /// - Throws: ``Base64DecodeError``
-    /// - Returns: UTF-8 編碼格式的字串
+    /// - Returns: UTF-8 encoded string
     public static func base64DecodedString(from str: String,
                                            operation: Base64.Base64Operation) throws -> String {
         switch operation {
         case .base64:
-            // 將 base64 編碼字串解碼成 UTF-8 字串
+            // Decode base64 encoded string into UTF-8 string
             guard let data = Data(base64Encoded: str) else {
                 throw Base64DecodeError.decodeFailed
             }
@@ -131,7 +127,7 @@ public struct Base64 {
             
             return result
         case .base64URL:
-            // 將 base64URL 編碼字串解碼成 UTF-8 字串
+            // Decode base64URL encoded string into UTF-8 string
             let base64 = Base64.base64EncodedString(from: str, operation: .base64)
             
             guard let data = Data(base64Encoded: base64) else {

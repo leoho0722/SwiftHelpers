@@ -9,7 +9,7 @@ import Foundation
 
 public extension HTTP {
     
-    /// 定義 HTTP Request 請求的 HTTP Header Fields
+    /// Define the HTTP Header Fields of the HTTP Request request
     enum HTTPHeaderFields: String, CustomStringConvertible {
         
         /// HTTP Request's HeaderFields，Authorization
@@ -31,7 +31,7 @@ public extension HTTP {
         case cookie = "Cookie"
         
         public var description: String {
-            let base = "HTTP Header Fields - "
+            let base = "HTTP Header Fields: "
             return base + self.rawValue
         }
     }

@@ -9,6 +9,7 @@ import UIKit
 
 public extension UIImage {
     
+    /// Use ``SFSymbols`` to initialize `UIImage`
     convenience init?(systemIcon: SFSymbols) {
         self.init(systemName: systemIcon.rawValue)
     }

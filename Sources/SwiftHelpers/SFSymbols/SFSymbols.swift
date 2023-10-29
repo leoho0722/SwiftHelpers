@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// System icon enumeration in Apple SF Symobls.app
 public enum SFSymbols: String, CaseIterable {
 
     /// SF Symbols's name：0.circle

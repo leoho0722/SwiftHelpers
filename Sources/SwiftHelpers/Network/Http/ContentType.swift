@@ -9,7 +9,7 @@ import Foundation
 
 public extension HTTP {
     
-    /// 定義 HTTP Request 請求的 HTTP Content-Type
+    /// Define the HTTP Content-Type of the HTTP Request
     enum HTTPContentType: String, CustomStringConvertible {
         
         /// HTTP Request's body Content-Type，JSON
@@ -25,7 +25,7 @@ public extension HTTP {
         case x_www_form_urlencoded = "application/x-www-form-urlencoded"
         
         public var description: String {
-            let base = "HTTP Content-Type - "
+            let base = "HTTP Content-Type: "
             return base + self.rawValue
         }
     }

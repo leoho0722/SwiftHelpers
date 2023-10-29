@@ -9,8 +9,8 @@ import Foundation
 
 public extension Data {
     
-    /// 將 Data 轉為 16 進制字串
-    /// - Returns: 16 進制字串
+    /// Convert Data to hexadecimal string
+    /// - Returns: Hexadecimal string
     func toHexString() -> String {
         return map {
             String(format: "%02x", $0)

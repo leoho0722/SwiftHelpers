@@ -9,13 +9,11 @@ import Foundation
 
 public extension Encodable {
     
-    /// 將 Encodable Object 轉換成 Dictionary<String, Any>
-    ///
-    /// [enum JSONEncodeError](x-source-tag://JSONEncodeError)
+    /// Convert `Encodable Object` to `Dictionary<String, Any>`
     ///
     /// - Parameters:
     ///   - data: Encodable Object
-    /// - Throws: JSONEncodeError
+    /// - Throws: ``JSONEncodeError``
     /// - Returns: Dictionary<String, Any>
     func toDictionary() throws -> Dictionary<String, Any> {
         let encoder = JSONEncoder()

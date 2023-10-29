@@ -12,26 +12,26 @@ public struct BytesArrayConvertor {
     /// typealias to `Array<UInt8>`
     public typealias BytesArray = Array<UInt8>
     
-    /// 將 16 進制字串轉為 BytesArray
+    /// Convert hexadecimal string to ``BytesArray``
     ///
     /// BytesArray is typealias to `Array<UInt8>`
     ///
     /// - Parameters:
-    ///   - hexString: 16 進制字串
+    ///   - hexString: hexadecimal string
     /// - Returns: ``BytesArray``
     public static func toBytesArray(from hexString: String) -> BytesArray {
-        assert(hexString.count % 2 == 0, "輸入的字串長度不對，每 8 個為一個字元")
+        assert(hexString.count % 2 == 0, "The length of the input string is incorrect, every 8 characters are one character")
         
         var bytes = BytesArray()
         var sum = 0
         
-        // 0~9 的 UTF-8 編碼範圍
+        // UTF-8 encoding range 0~9
         let numRange = 48 ... 57
         
-        // a-f 的 UTF-8 編碼範圍
+        // UTF-8 encoding range a~f
         let lowercaseRange = 97 ... 102
         
-        // A-F 的 UTF-8 編碼範圍
+        // UTF-8 encoding range A~F
         let uppercaseRange = 65 ... 70
         
         for (index, char) in hexString.utf8CString.enumerated() {
@@ -46,7 +46,7 @@ public struct BytesArrayConvertor {
             } else if uppercaseRange.contains(intC) {
                 intC -= 55
             } else {
-                assertionFailure("輸入的字串格式不符合，每個字元皆需在 0-9、a-f、A-F 這個範圍內")
+                assertionFailure("The input string format does not match. Each character must be in the range of 0-9, a-f, A-F.")
             }
             
             sum = sum * 16 + intC
@@ -60,13 +60,13 @@ public struct BytesArrayConvertor {
         return bytes
     }
     
-    /// 將 bytesArray 轉為 16 進制字串
+    /// Convert ``BytesArray`` to hexadecimal string
     ///
     /// BytesArray is typealias to `Array<UInt8>`
     ///
     /// - Parameters:
     ///   - byteArray: ``BytesArray``
-    /// - Returns: 16 進制字串
+    /// - Returns: hexadecimal string
     public static func toHexString(from byteArray: BytesArray) -> String {
         return Data(bytes: byteArray, count: byteArray.count).toHexString()
     }

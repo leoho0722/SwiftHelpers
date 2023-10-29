@@ -9,7 +9,7 @@ import Foundation
 
 public extension HTTP {
     
-    /// 定義 HTTP Request 請求的 HTTP Method
+    /// Define the HTTP Method of the HTTP Request request
     enum HTTPMethod: String, CustomStringConvertible {
         
         /// HTTP Method - GET
@@ -40,7 +40,7 @@ public extension HTTP {
         case patch = "PATCH"
         
         public var description: String {
-            let base = "HTTP Method - "
+            let base = "HTTP Method: "
             return base + self.rawValue
         }
     }

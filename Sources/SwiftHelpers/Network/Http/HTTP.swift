@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// 定義 HTTP Request 請求的相關參數
+/// Define the relevant parameters of the HTTP Request request
 public struct HTTP {
     
 }

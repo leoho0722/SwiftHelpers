@@ -10,29 +10,27 @@ import Foundation
 /// JSON Encoder / Decoder
 public struct JSON {
     
-    /// 定義 JSON 編碼過程中可能發生的錯誤
+    /// Define errors that may occur during JSON encoding
     /// - Tag: JSONEncodeError
     public enum JSONEncodeError: Error, CustomStringConvertible {
         
-        /// 將 Encodable Data 透過 `JSONSerialization.jsonObject` 轉換成 `Dictionary<String, Any>` 失敗
+        /// Failed to convert Encodable Data to `Dictionary<String, Any>` through `JSONSerialization.jsonObject`
         case encodableToDictFailed
         
-        /// 將 `Dictionary<String, Any>` 透過 `JSONSerialization.data` 轉換成 `Data` 失敗
+        /// Failed to convert `Dictionary<String, Any>` to `Data` through `JSONSerialization.data`
         case dictToDataFailed
         
         public var description: String {
             switch self {
             case .encodableToDictFailed:
-                return "將 Encodable Data 透過 `JSONSerialization.jsonObject` 轉換成 `Dictionary<String, Any>` 失敗"
+                return "Failed to convert Encodable Data to `Dictionary<String, Any>` through `JSONSerialization.jsonObject`"
             case .dictToDataFailed:
-                return "將 `Dictionary<String, Any>` 透過 `JSONSerialization.data` 轉換成 `Data` 失敗"
+                return "Failed to convert `Dictionary<String, Any>` to `Data` through `JSONSerialization.data`"
             }
         }
     }
     
-    /// 將 Encodable Object 轉換成 JSON Data
-    ///
-    /// [enum JSONEncodeError](x-source-tag://JSONEncodeError)
+    /// Convert Encodable Object to JSON Data
     ///
     /// - Parameters:
     ///   - data: Encodable Object
