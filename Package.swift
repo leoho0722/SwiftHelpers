@@ -24,6 +24,20 @@ let package = Package(
                 .linkedFramework("SwiftUI"),
                 .linkedFramework("UIKit"),
             ]
+        ),
+        .testTarget(
+            name: "SwiftHelpersUnitTests",
+            dependencies: [
+                .target(name: "SwiftHelpers")
+            ],
+            path: "Sources/SwiftHelpersUnitTests",
+            exclude: [
+                "../../build-documentation.sh"
+            ],
+            linkerSettings: [
+                .linkedFramework("SwiftUI"),
+                .linkedFramework("UIKit"),
+            ]
         )
     ],
     swiftLanguageVersions: [.v5]

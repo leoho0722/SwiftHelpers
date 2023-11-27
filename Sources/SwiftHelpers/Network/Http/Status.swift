@@ -10,270 +10,282 @@ import Foundation
 public extension HTTP {
     
     /// Define HTTP Status of HTTP Response
-    enum HTTPStatus: Error, CustomStringConvertible {
+    enum HTTPStatus: Int, LocalizedError, CustomNSError {
+        
+        // MARK: Initializer
+        
+        public init?(rawValue: Int) {
+            switch rawValue {
+            case HTTPStatus.continue.rawValue: self = .continue
+            case HTTPStatus.switchingProtocols.rawValue: self = .switchingProtocols
+            case HTTPStatus.processing.rawValue: self = .processing
+            case HTTPStatus.earlyHints.rawValue: self = .earlyHints
+            case HTTPStatus.ok.rawValue: self = .ok
+            case HTTPStatus.created.rawValue: self = .created
+            case HTTPStatus.accepted.rawValue: self = .accepted
+            case HTTPStatus.nonAuthoritativeInformation.rawValue: self = .nonAuthoritativeInformation
+            case HTTPStatus.noContent.rawValue: self = .noContent
+            case HTTPStatus.resetContent.rawValue: self = .resetContent
+            case HTTPStatus.partialContent.rawValue: self = .partialContent
+            case HTTPStatus.multiStatus.rawValue: self = .multiStatus
+            case HTTPStatus.alreadyReported.rawValue: self = .alreadyReported
+            case HTTPStatus.imUsed.rawValue: self = .imUsed
+            case HTTPStatus.multipleChoices.rawValue: self = .multipleChoices
+            case HTTPStatus.movedPermanently.rawValue: self = .movedPermanently
+            case HTTPStatus.found.rawValue: self = .found
+            case HTTPStatus.seeOther.rawValue: self = .seeOther
+            case HTTPStatus.notModified.rawValue: self = .notModified
+            case HTTPStatus.temporaryRedirect.rawValue: self = .temporaryRedirect
+            case HTTPStatus.permanentRedirect.rawValue: self = .permanentRedirect
+            case HTTPStatus.badRequest.rawValue: self = .badRequest
+            case HTTPStatus.unauthorized.rawValue: self = .unauthorized
+            case HTTPStatus.paymentRequired.rawValue: self = .paymentRequired
+            case HTTPStatus.forbidden.rawValue: self = .forbidden
+            case HTTPStatus.notFound.rawValue: self = .notFound
+            case HTTPStatus.methodNotAllowed.rawValue: self = .methodNotAllowed
+            case HTTPStatus.notAcceptable.rawValue: self = .notAcceptable
+            case HTTPStatus.proxyAuthenticationRequired.rawValue: self = .proxyAuthenticationRequired
+            case HTTPStatus.requestTimeout.rawValue: self = .requestTimeout
+            case HTTPStatus.conflict.rawValue: self = .conflict
+            case HTTPStatus.gone.rawValue: self = .gone
+            case HTTPStatus.lengthRequired.rawValue: self = .lengthRequired
+            case HTTPStatus.preconditionFailed.rawValue: self = .preconditionFailed
+            case HTTPStatus.contentTooLarge.rawValue: self = .contentTooLarge
+            case HTTPStatus.uriTooLong.rawValue: self = .uriTooLong
+            case HTTPStatus.unsupportedMediaType.rawValue: self = .unsupportedMediaType
+            case HTTPStatus.rangeNotSatisfiable.rawValue: self = .rangeNotSatisfiable
+            case HTTPStatus.expectationFailed.rawValue: self = .expectationFailed
+            case HTTPStatus.iMaTeapot.rawValue: self = .iMaTeapot
+            case HTTPStatus.misdirectedRequest.rawValue: self = .misdirectedRequest
+            case HTTPStatus.unprocessableContent.rawValue: self = .unprocessableContent
+            case HTTPStatus.locked.rawValue: self = .locked
+            case HTTPStatus.failedDependency.rawValue: self = .failedDependency
+            case HTTPStatus.tooEarly.rawValue: self = .tooEarly
+            case HTTPStatus.upgradeRequired.rawValue: self = .upgradeRequired
+            case HTTPStatus.preconditionRequired.rawValue: self = .preconditionRequired
+            case HTTPStatus.tooManyRequests.rawValue: self = .tooManyRequests
+            case HTTPStatus.requestHeaderFieldsTooLarge.rawValue: self = .requestHeaderFieldsTooLarge
+            case HTTPStatus.unavailableForLegalReasons.rawValue: self = .unavailableForLegalReasons
+            case HTTPStatus.internalServerError.rawValue: self = .internalServerError
+            case HTTPStatus.notImplemented.rawValue: self = .notImplemented
+            case HTTPStatus.badGateway.rawValue: self = .badGateway
+            case HTTPStatus.serviceUnavailable.rawValue: self = .serviceUnavailable
+            case HTTPStatus.gatewayTimeout.rawValue: self = .gatewayTimeout
+            case HTTPStatus.httpVersionNotSupported.rawValue: self = .httpVersionNotSupported
+            case HTTPStatus.variantAlsoNegotiates.rawValue: self = .variantAlsoNegotiates
+            case HTTPStatus.insufficientStorage.rawValue: self = .insufficientStorage
+            case HTTPStatus.loopDetected.rawValue: self = .loopDetected
+            case HTTPStatus.notExtended.rawValue: self = .notExtended
+            case HTTPStatus.networkAuthenticationRequired.rawValue: self = .networkAuthenticationRequired
+            default: self = .unknown
+            }
+        }
+        
+        // MARK: Unknown Status Code
+        
+        /// Unknown HTTP Status Code
+        case unknown = -1
         
         // MARK: Status Code 1xx
         
         /// HTTP Status Code 100
-        case `continue`
+        case `continue` = 100
         
         /// HTTP Status Code 101
-        case switchingProtocols
+        case switchingProtocols = 101
         
         /// HTTP Status Code 102
-        case processing
+        case processing = 102
         
         /// HTTP Status Code 103
-        case earlyHints
+        case earlyHints = 103
         
         // MARK: Status Code 2xx
         
         /// HTTP Status Code 200
-        case ok
+        case ok = 200
         
         /// HTTP Status Code 201
-        case created
+        case created = 201
         
         /// HTTP Status Code 202
-        case accepted
+        case accepted = 202
         
         /// HTTP Status Code 203
-        case nonAuthoritativeInformation
+        case nonAuthoritativeInformation = 203
         
         /// HTTP Status Code 204
-        case noContent
+        case noContent = 204
         
         /// HTTP Status Code 205
-        case resetContent
+        case resetContent = 205
         
         /// HTTP Status Code 206
-        case partialContent
+        case partialContent = 206
         
         /// HTTP Status Code 207
-        case multiStatus
+        case multiStatus = 207
         
         /// HTTP Status Code 208
-        case alreadyReported
+        case alreadyReported = 208
         
         /// HTTP Status Code 226
-        case imUsed
+        case imUsed = 226
         
         // MARK: Status Code 3xx
         
         /// HTTP Status Code 300
-        case multipleChoices
+        case multipleChoices = 300
         
         /// HTTP Status Code 301
-        case movedPermanently
+        case movedPermanently = 301
         
         /// HTTP Status Code 302
-        case found
+        case found = 302
         
         /// HTTP Status Code 303
-        case seeOther
+        case seeOther = 303
         
         /// HTTP Status Code 304
-        case notModified
+        case notModified = 304
         
         /// HTTP Status Code 307
-        case temporaryRedirect
+        case temporaryRedirect = 307
         
         /// HTTP Status Code 308
-        case permanentRedirect
+        case permanentRedirect = 308
         
         // MARK: Status Code 4xx
         
         /// HTTP Status Code 400
-        case badRequest
+        case badRequest = 400
         
         /// HTTP Status Code 401
-        case unauthorized
+        case unauthorized = 401
         
         /// HTTP Status Code 402
-        case paymentRequired
+        case paymentRequired = 402
         
         /// HTTP Status Code 403
-        case forbidden
+        case forbidden = 403
         
         /// HTTP Status Code 404
-        case notFound
+        case notFound = 404
         
         /// HTTP Status Code 405
-        case methodNotAllowed
+        case methodNotAllowed = 405
         
         /// HTTP Status Code 406
-        case notAcceptable
+        case notAcceptable = 406
         
         /// HTTP Status Code 407
-        case proxyAuthenticationRequired
+        case proxyAuthenticationRequired = 407
         
         /// HTTP Status Code 408
-        case requestTimeout
+        case requestTimeout = 408
         
         /// HTTP Status Code 409
-        case conflict
+        case conflict = 409
         
         /// HTTP Status Code 410
-        case gone
+        case gone = 410
         
         /// HTTP Status Code 411
-        case lengthRequired
+        case lengthRequired = 411
         
         /// HTTP Status Code 412
-        case preconditionFailed
+        case preconditionFailed = 412
         
         /// HTTP Status Code 413
-        case contentTooLarge
+        case contentTooLarge = 413
         
         /// HTTP Status Code 414
-        case uriTooLong
+        case uriTooLong = 414
         
         /// HTTP Status Code 415
-        case unsupportedMediaType
+        case unsupportedMediaType = 415
         
         /// HTTP Status Code 416
-        case rangeNotSatisfiable
+        case rangeNotSatisfiable = 416
         
         /// HTTP Status Code 417
-        case expectationFailed
+        case expectationFailed = 417
         
         /// HTTP Status Code 418
-        case iMaTeapot
+        case iMaTeapot = 418
         
         /// HTTP Status Code 421
-        case misdirectedRequest
+        case misdirectedRequest = 421
         
         /// HTTP Status Code 422
-        case unprocessableContent
+        case unprocessableContent = 422
         
         /// HTTP Status Code 423
-        case locked
+        case locked = 423
         
         /// HTTP Status Code 424
-        case failedDependency
+        case failedDependency = 424
         
         /// HTTP Status Code 425
-        case tooEarly
+        case tooEarly = 425
         
         /// HTTP Status Code 426
-        case upgradeRequired
+        case upgradeRequired = 426
         
         /// HTTP Status Code 428
-        case preconditionRequired
+        case preconditionRequired = 428
         
         /// HTTP Status Code 429
-        case tooManyRequests
+        case tooManyRequests = 429
         
         /// HTTP Status Code 431
-        case requestHeaderFieldsTooLarge
+        case requestHeaderFieldsTooLarge = 431
         
         /// HTTP Status Code 451
-        case unavailableForLegalReasons
+        case unavailableForLegalReasons = 451
         
         // MARK: Status Code 5xx
         
         /// HTTP Status Code 500
-        case internalServerError
+        case internalServerError = 500
         
         /// HTTP Status Code 501
-        case notImplemented
+        case notImplemented = 501
         
         /// HTTP Status Code 502
-        case badGateway
+        case badGateway = 502
         
         /// HTTP Status Code 503
-        case serviceUnavailable
+        case serviceUnavailable = 503
         
         /// HTTP Status Code 504
-        case gatewayTimeout
+        case gatewayTimeout = 504
         
         /// HTTP Status Code 505
-        case httpVersionNotSupported
+        case httpVersionNotSupported = 505
         
         /// HTTP Status Code 506
-        case variantAlsoNegotiates
+        case variantAlsoNegotiates = 506
         
         /// HTTP Status Code 507
-        case insufficientStorage
+        case insufficientStorage = 507
         
         /// HTTP Status Code 508
-        case loopDetected
+        case loopDetected = 508
         
         /// HTTP Status Code 510
-        case notExtended
+        case notExtended = 510
         
         /// HTTP Status Code 511
-        case networkAuthenticationRequired
+        case networkAuthenticationRequired = 511
         
-        public var statusCode: Int {
-            switch self {
-            case .continue: 100
-            case .switchingProtocols: 101
-            case .processing: 102
-            case .earlyHints: 103
-            case .ok: 200
-            case .created: 201
-            case .accepted: 202
-            case .nonAuthoritativeInformation: 203
-            case .noContent: 204
-            case .resetContent: 205
-            case .partialContent: 206
-            case .multiStatus: 207
-            case .alreadyReported: 208
-            case .imUsed: 226
-            case .multipleChoices: 300
-            case .movedPermanently: 301
-            case .found: 302
-            case .seeOther: 303
-            case .notModified: 304
-            case .temporaryRedirect: 307
-            case .permanentRedirect: 308
-            case .badRequest: 400
-            case .unauthorized: 401
-            case .paymentRequired: 402
-            case .forbidden: 403
-            case .notFound: 404
-            case .methodNotAllowed: 405
-            case .notAcceptable: 406
-            case .proxyAuthenticationRequired: 407
-            case .requestTimeout: 408
-            case .conflict: 409
-            case .gone: 410
-            case .lengthRequired: 411
-            case .preconditionFailed: 412
-            case .contentTooLarge: 413
-            case .uriTooLong: 414
-            case .unsupportedMediaType: 415
-            case .rangeNotSatisfiable: 416
-            case .expectationFailed: 417
-            case .iMaTeapot: 418
-            case .misdirectedRequest: 421
-            case .unprocessableContent: 422
-            case .locked: 423
-            case .failedDependency: 424
-            case .tooEarly: 425
-            case .upgradeRequired: 426
-            case .preconditionRequired: 428
-            case .tooManyRequests: 429
-            case .requestHeaderFieldsTooLarge: 431
-            case .unavailableForLegalReasons: 451
-            case .internalServerError: 500
-            case .notImplemented: 501
-            case .badGateway: 502
-            case .serviceUnavailable: 503
-            case .gatewayTimeout: 504
-            case .httpVersionNotSupported: 505
-            case .variantAlsoNegotiates: 506
-            case .insufficientStorage: 507
-            case .loopDetected: 508
-            case .notExtended: 510
-            case .networkAuthenticationRequired: 511
-            }
-        }
+        // MARK: - Implementation LocalizedError
         
-        public var description: String {
-            let base = "HTTP Status Code: \(self.statusCode) "
+        public var errorDescription: String {
+            let base = "HTTP Status Code: \(self.rawValue) "
             switch self {
+            case .unknown:
+                return base + "Unknown Status Code"
             case .continue:
                 return base + "Continue"
             case .switchingProtocols:
@@ -397,6 +409,20 @@ public extension HTTP {
             case .networkAuthenticationRequired:
                 return base + "Network Authentication Required"
             }
+        }
+        
+        // MARK: - Implementation CustomNSError
+        
+        public var errorCode: Int {
+            return self.rawValue
+        }
+        
+        public var errorUserInfo: [String : Any] {
+            return ["message" : self.errorDescription]
+        }
+        
+        public static var errorDomain: String {
+            return "HTTPStatus"
         }
     }
 }
