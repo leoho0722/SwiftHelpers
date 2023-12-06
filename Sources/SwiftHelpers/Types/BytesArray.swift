@@ -1,6 +1,6 @@
 //
 //  BytesArray.swift
-//  SwiftHelpers/Type
+//  SwiftHelpers/Types
 //
 //  Created by Leo Ho on 2023/6/15.
 //

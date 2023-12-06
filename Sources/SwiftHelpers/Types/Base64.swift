@@ -1,6 +1,6 @@
 //
 //  Base64.swift
-//  SwiftHelpers/Type
+//  SwiftHelpers/Types
 //
 //  Created by Leo Ho on 2023/6/14.
 //
