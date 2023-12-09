@@ -87,6 +87,9 @@ struct ContentView: View {
         Image(systemIcon: .person) // Use SwiftHelpers
         // Image(systemName: "person") // Use SwiftUI
         
+        Label("Safely use SF Symobols with SwiftUI", systemIcon: .person) // Use SwiftHelpers
+        // Label("Use SF Symobols with SwiftUI", systemImage: "person") // Use SwiftUI
+        
         // ...
     }
 }
