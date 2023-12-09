@@ -12,8 +12,8 @@ Use Swift to create some amazing things!
 
 ## Package Development Environment
 
-* macOS Sonoma 14.1 (23B74)
-* Xcode 15.0.1 (15A507)
+* macOS Sonoma 14.2 (23C64)
+* Xcode 15.1 (15C65)
 * Swift 5.9
 
 ## Install
@@ -32,7 +32,6 @@ https://github.com/leoho0722/SwiftHelpers.git
 
 ```swift
 import Foundation
-
 import SwiftHelpers
 
 func createURLRequest<E>(with url: URL,
@@ -49,5 +48,46 @@ func createURLRequest<E>(with url: URL,
     }
     
     return request
+}
+```
+
+### Example: Safely use SF Symbols with UIKit and SwiftUI
+
+#### UIKit
+
+```swift
+import SwiftHelpers
+import UIKit
+
+class ViewController: UIViewController {
+    
+    private let imageView = UIImageView()
+
+    override func viewDidLoad() {
+        imageView.image = UIImage(systemIcon: .person) // Use SwiftHelpers
+        // imageView.image = UIImage(systemName: "person") // Use UIKit
+        view.addSubView(imageView)
+        
+        // ...
+    }
+    
+    // ...
+}
+```
+
+#### SwiftUI
+
+```swift
+import SwiftHelpers
+import SwiftUI
+
+struct ContentView: View {
+    
+    var body: some View {
+        Image(systemIcon: .person) // Use SwiftHelpers
+        // Image(systemName: "person") // Use SwiftUI
+        
+        // ...
+    }
 }
 ```
