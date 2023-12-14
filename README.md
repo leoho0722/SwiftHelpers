@@ -64,7 +64,7 @@ class ViewController: UIViewController {
     private let imageView = UIImageView()
 
     override func viewDidLoad() {
-        imageView.image = UIImage(systemIcon: .person) // Use SwiftHelpers
+        imageView.image = UIImage(symbols: .person) // Use SwiftHelpers
         // imageView.image = UIImage(systemName: "person") // Use UIKit
         view.addSubView(imageView)
         
@@ -84,10 +84,10 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        Image(systemIcon: .person) // Use SwiftHelpers
+        Image(symbols: .person) // Use SwiftHelpers
         // Image(systemName: "person") // Use SwiftUI
         
-        Label("Safely use SF Symobols with SwiftUI", systemIcon: .person) // Use SwiftHelpers
+        Label("Safely use SF Symobols with SwiftUI", symbols: .person) // Use SwiftHelpers
         // Label("Use SF Symobols with SwiftUI", systemImage: "person") // Use SwiftUI
         
         // ...
