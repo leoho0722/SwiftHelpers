@@ -1,6 +1,6 @@
 //
 //  UIAlertController+Extensions.swift
-//  SwiftHelpers/Extensions
+//  SwiftHelpers/Extensions/UIKit
 //
 //  Created by Leo Ho on 2023/12/9.
 //

@@ -1,6 +1,6 @@
 //
 //  Encodable+Extensions.swift
-//  SwiftHelpers/Extensions
+//  SwiftHelpers/Extensions/Foundation
 //
 //  Created by Leo Ho on 2023/10/10.
 //

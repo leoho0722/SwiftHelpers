@@ -1,21 +1,13 @@
 //
 //  String+Extensions.swift
-//  SwiftHelpers/Extensions
+//  SwiftHelpers/Extensions/Foundation
 //
-//  Created by Leo Ho on 2023/6/23.
+//  Created by Leo Ho on 2023/12/14.
 //
 
-import UIKit
+import Foundation
 
 public extension String {
-    
-    /// Calculate word size
-    /// - Parameters:
-    ///   - font: font
-    /// - Returns: word size
-    func size(with font: UIFont) -> CGSize {
-        return NSString(string: self).size(withAttributes: [.font : font])
-    }
     
     /// Convert hexadecimal string to Data
     /// - Throws: NSError
