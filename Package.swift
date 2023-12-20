@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftHelpers",
-    platforms: [.iOS(.v15)],
+    platforms: [.iOS(.v15), .macOS(.v12)],
     products: [
         .library(
             name: "SwiftHelpers",
@@ -22,7 +22,8 @@ let package = Package(
             ],
             linkerSettings: [
                 .linkedFramework("SwiftUI"),
-                .linkedFramework("UIKit"),
+                .linkedFramework("UIKit", .when(platforms: [.iOS])),
+                .linkedFramework("AppKit", .when(platforms: [.macOS]))
             ]
         ),
         .testTarget(
@@ -36,7 +37,8 @@ let package = Package(
             ],
             linkerSettings: [
                 .linkedFramework("SwiftUI"),
-                .linkedFramework("UIKit"),
+                .linkedFramework("UIKit", .when(platforms: [.iOS])),
+                .linkedFramework("AppKit", .when(platforms: [.macOS]))
             ]
         )
     ],
