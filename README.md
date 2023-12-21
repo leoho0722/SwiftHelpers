@@ -6,10 +6,11 @@
 
 Use Swift to create some amazing things!
 
-## Minimum OS Requirement
+## Minimum Requirement
 
 * iOS 15.0 or above
 * macOS 12.0 or above
+* Xcode 13.0 or above
 
 ## Package Development Environment
 
