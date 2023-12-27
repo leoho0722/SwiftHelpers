@@ -5,6 +5,7 @@
 //  Created by Leo Ho on 2023/12/8.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIView {
@@ -15,3 +16,4 @@ public extension UIView {
         return UINib(nibName: String(describing: self), bundle: nil)
     }
 }
+#endif

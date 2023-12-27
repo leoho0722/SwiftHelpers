@@ -5,6 +5,7 @@
 //  Created by Leo Ho on 2023/12/9.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIAlertController {
@@ -16,3 +17,4 @@ public extension UIAlertController {
        setValue(value, forKey: "attributedMessage")
     }
 }
+#endif

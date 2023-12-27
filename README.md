@@ -6,13 +6,15 @@
 
 Use Swift to create some amazing things!
 
-## Minimum OS Requirement
+## Minimum Requirement
 
 * iOS 15.0 or above
+* macOS 12.0 or above
+* Xcode 13.0 or above
 
 ## Package Development Environment
 
-* macOS Sonoma 14.2 (23C64)
+* macOS Sonoma 14.2.1 (23C71)
 * Xcode 15.1 (15C65)
 * Swift 5.9
 
@@ -51,7 +53,7 @@ func createURLRequest<E>(with url: URL,
 }
 ```
 
-### Example: Safely use SF Symbols with UIKit and SwiftUI
+### Example: Safely use SF Symbols with UIKit and AppKit and SwiftUI
 
 #### UIKit
 
@@ -64,14 +66,40 @@ class ViewController: UIViewController {
     private let imageView = UIImageView()
 
     override func viewDidLoad() {
-        imageView.image = UIImage(systemIcon: .person) // Use SwiftHelpers
-        // imageView.image = UIImage(systemName: "person") // Use UIKit
+        super.viewDidLoad()
+        imageView.image = UIImage(symbols: .applelogo) // Use SwiftHelpers
+        // imageView.image = UIImage(systemName: "applelogo") // Use UIKit
         view.addSubView(imageView)
         
         // ...
     }
+}
+```
+
+#### AppKit
+
+```swift
+import Cocoa
+import SwiftHelpers
+
+class ViewController: NSViewController {
     
-    // ...
+    private let imageView = NSImageView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imageView.image = NSImage(symbols: .applelogo) // Use SwiftHelpers
+        // imageView.image = NSImage(systemSymbolName: "applelogo", accessibilityDescription: nil) // Use AppKit
+        view.addSubView(imageView)
+        
+        // ...
+    }
+
+    override var representedObject: Any? {
+        didSet {
+            // Update the view, if already loaded.
+        }
+    }
 }
 ```
 
@@ -84,11 +112,11 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        Image(systemIcon: .person) // Use SwiftHelpers
-        // Image(systemName: "person") // Use SwiftUI
+        Image(symbols: .applelogo) // Use SwiftHelpers
+        // Image(systemName: "applelogo") // Use SwiftUI
         
-        Label("Safely use SF Symobols with SwiftUI", systemIcon: .person) // Use SwiftHelpers
-        // Label("Use SF Symobols with SwiftUI", systemImage: "person") // Use SwiftUI
+        Label("Safely use SF Symobols with SwiftUI", symbols: .applelogo) // Use SwiftHelpers
+        // Label("Use SF Symobols with SwiftUI", systemImage: "applelogo") // Use SwiftUI
         
         // ...
     }

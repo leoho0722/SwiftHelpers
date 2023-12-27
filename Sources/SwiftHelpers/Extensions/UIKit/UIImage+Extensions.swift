@@ -5,6 +5,7 @@
 //  Created by Leo Ho on 2023/10/2.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIImage {
@@ -20,3 +21,4 @@ public extension UIImage {
         self.init(systemName: symbols.rawValue)
     }
 }
+#endif
