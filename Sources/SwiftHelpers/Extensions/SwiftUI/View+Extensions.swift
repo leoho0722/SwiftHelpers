@@ -5,6 +5,7 @@
 //  Created by Leo Ho on 2023/12/27.
 //
 
+#if os(iOS)
 import SwiftUI
 
 public struct CloseKeyboardModifier: ViewModifier {
@@ -30,3 +31,4 @@ public extension View {
         ModifiedContent(content: self, modifier: CloseKeyboardModifier())
     }
 }
+#endif

@@ -5,6 +5,7 @@
 //  Created by Leo Ho on 2023/6/23.
 //
 
+import Foundation
 #if canImport(UIKit)
 import UIKit
 
@@ -17,6 +18,10 @@ public extension String {
     func size(with font: UIFont) -> CGSize {
         return NSString(string: self).size(withAttributes: [.font : font])
     }
+}
+#endif
+
+public extension String {
     
     /// Convert hexadecimal string to Data
     /// - Throws: NSError
@@ -38,4 +43,3 @@ public extension String {
         return data
     }
 }
-#endif

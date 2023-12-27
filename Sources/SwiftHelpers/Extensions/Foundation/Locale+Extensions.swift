@@ -9,7 +9,7 @@ import Foundation
 
 public extension Locale {
     
-    /// User  preferred display language
+    /// User preferred display language
     static var preferredLocale: Self {
         return Locale(identifier: preferredLocaleToString())
     }
