@@ -4,3 +4,9 @@ builder:
     - documentation_targets:
         - SwiftHelpers
       platform: ios
+    - documentation_targets:
+        - SwiftHelpers
+      platform: macosSpm
+    - documentation_targets:
+        - SwiftHelpers
+      platform: macosXcodebuild
