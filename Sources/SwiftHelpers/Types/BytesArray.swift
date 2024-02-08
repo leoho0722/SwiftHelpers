@@ -20,7 +20,10 @@ public struct BytesArrayConvertor {
     ///   - hexString: hexadecimal string
     /// - Returns: ``BytesArray``
     public static func toBytesArray(from hexString: String) -> BytesArray {
-        assert(hexString.count % 2 == 0, "The length of the input string is incorrect, every 8 characters are one character")
+        assert(
+            hexString.count % 2 == 0,
+            "The length of the input string is incorrect, every 8 characters are one character"
+        )
         
         var bytes = BytesArray()
         var sum = 0
@@ -46,7 +49,9 @@ public struct BytesArrayConvertor {
             } else if uppercaseRange.contains(intC) {
                 intC -= 55
             } else {
-                assertionFailure("The input string format does not match. Each character must be in the range of 0-9, a-f, A-F.")
+                assertionFailure(
+                    "The input string format does not match. Each character must be in the range of 0-9, a-f, A-F."
+                )
             }
             
             sum = sum * 16 + intC
