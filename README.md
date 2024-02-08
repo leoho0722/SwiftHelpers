@@ -10,13 +10,13 @@ Use Swift to create some amazing things!
 
 * iOS 15.0 or above
 * macOS 12.0 or above
-* Xcode 13.0 or above
+* Xcode 14.0 or above
 
 ## Package Development Environment
 
-* macOS Sonoma 14.2.1 (23C71)
-* Xcode 15.1 (15C65)
-* Swift 5.9
+* macOS Sonoma 14.3 (23D56)
+* Xcode 15.2 (15C500b)
+* Swift 5.9.2 (5.9.2.2.56)
 
 ## Install
 
