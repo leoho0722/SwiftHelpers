@@ -33,19 +33,6 @@ public extension UIAlertController {
         }
     }
     
-    /// Customize the attributedMessage of the UIAlertController message
-    /// - Parameters:
-    ///   - value: attributedMessage
-    @available(
-        *,
-         deprecated,
-         renamed: "allAttribtes(with:)",
-         message: "Deprecated since version 0.0.17, renamed to allAttribtes(with:)"
-    )
-    func setAttributedMessage(value: Any?) {
-       setValue(value, forKey: "attributedMessage")
-    }
-    
     /// Add multiple UIAlertActions to UIAlertController at once.
     /// - Parameters:
     ///   - actions: Array of the UIAlertAction
@@ -55,8 +42,8 @@ public extension UIAlertController {
         }
     }
     
-    /// Add multiple UIAlertActions to UIAlertController at once. 
-    /// 
+    /// Add multiple UIAlertActions to UIAlertController at once.
+    ///
     /// Same as ```func addActions(_ actions: UIAlertAction...)```
     ///
     /// - Parameters:
@@ -65,6 +52,24 @@ public extension UIAlertController {
         actions.forEach { action in
             addAction(action)
         }
+    }
+}
+
+// MARK: - Deprecated
+
+public extension UIAlertController {
+    
+    /// Customize the attributedMessage of the UIAlertController message
+    /// - Parameters:
+    ///   - value: attributedMessage
+    @available(
+        *,
+         deprecated,
+         renamed: "allAttribtes(with:)",
+         message: "Deprecated since version 0.0.17, renamed to allAttribtes(with:) and will be removed in a future version"
+    )
+    func setAttributedMessage(value: Any?) {
+        setValue(value, forKey: "attributedMessage")
     }
 }
 #endif

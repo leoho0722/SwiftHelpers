@@ -10,11 +10,29 @@ import SwiftUI
 public extension Image {
     
     /// Use ``SFSymbols`` to initialize `Image`
+    init(symbols: SFSymbols) {
+        self.init(systemName: symbols.rawValue)
+    }
+    
+    /// Use ``SFSymbols`` to initialize `Image`
+    ///
+    ///  This initializer is available in iOS 16.0 and macOS 13.0 or above
+    @available(iOS 16.0, macOS 13.0, *)
+    init(symbols: SFSymbols, variableValue: Double?) {
+        self.init(systemName: symbols.rawValue, variableValue: variableValue)
+    }
+}
+
+// MARK: - Deprecated
+
+public extension Image {
+    
+    /// Use ``SFSymbols`` to initialize `Image`
     @available(
         *,
          deprecated,
          renamed: "init(symbols:)",
-         message: "Deprecated since version 0.0.9, renamed to init(symbols:)"
+         message: "Deprecated since version 0.0.9, renamed to init(symbols:) and will be removed in a future version"
     )
     init(systemIcon: SFSymbols) {
         self.init(systemName: systemIcon.rawValue)
@@ -28,22 +46,9 @@ public extension Image {
         *,
          deprecated,
          renamed: "init(symbols:variableValue:)",
-         message: "Deprecated since version 0.0.9, renamed to init(symbols:variableValue:)"
+         message: "Deprecated since version 0.0.9, renamed to init(symbols:variableValue:) and will be removed in a future version"
     )
     init(systemIcon: SFSymbols, variableValue: Double?) {
         self.init(systemName: systemIcon.rawValue, variableValue: variableValue)
-    }
-    
-    /// Use ``SFSymbols`` to initialize `Image`
-    init(symbols: SFSymbols) {
-        self.init(systemName: symbols.rawValue)
-    }
-    
-    /// Use ``SFSymbols`` to initialize `Image`
-    ///
-    ///  This initializer is available in iOS 16.0 and macOS 13.0 or above
-    @available(iOS 16.0, macOS 13.0, *)
-    init(symbols: SFSymbols, variableValue: Double?) {
-        self.init(systemName: symbols.rawValue, variableValue: variableValue)
     }
 }
