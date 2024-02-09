@@ -217,8 +217,8 @@ public extension Base64 {
     @available(
         *,
          deprecated,
-         renamed: "encodedString(from:using:)",
-         message: "Deprecated since version 0.0.17, renamed to encodedString(from:using:) and will be removed in a future version"
+         renamed: "base64EncodedString(from:)",
+         message: "Deprecated since version 0.0.17, renamed to base64EncodedString(from:) and will be removed in a future version"
     )
     static func base64EncodedString(from str: String,
                                     operation: Base64.Encoding) -> String {
@@ -256,12 +256,7 @@ public extension Base64 {
     ///   - operation: ``Decoding``, perform base64 / base64URL conversion operation
     /// - Throws: ``DecodingError``
     /// - Returns: `Data` initialized via base64 / base64URL encoded string
-    @available(
-        *,
-         deprecated,
-         renamed: "decodedData(from:using:)",
-         message: "Deprecated since version 0.0.17, renamed to decodedData(from:using:) and will be removed in a future version"
-    )
+    @available(*, unavailable)
     static func base64DecodedData(from str: String,
                                   operation: Base64.Encoding) throws -> Data {
         switch operation {
@@ -294,8 +289,8 @@ public extension Base64 {
     @available(
         *,
          deprecated,
-         renamed: "decodedString(from:using:)",
-         message: "Deprecated since version 0.0.17, renamed to decodedString(from:using:) and will be removed in a future version"
+         renamed: "base64DecodedString(from:)",
+         message: "Deprecated since version 0.0.17, renamed to base64DecodedString(from:) and will be removed in a future version"
     )
     static func base64DecodedString(from str: String,
                                     operation: Base64.Encoding) throws -> String {
