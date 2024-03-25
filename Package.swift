@@ -20,6 +20,9 @@ let package = Package(
             exclude: [
                 "../../build-documentation.sh"
             ],
+            resources: [
+                .copy("Sources/SwiftHelpers/PrivacyInfo/PrivacyInfo.xcprivacy")
+            ],
             linkerSettings: [
                 .linkedFramework("SwiftUI"),
                 .linkedFramework("UIKit", .when(platforms: [.iOS])),
