@@ -21,7 +21,7 @@ let package = Package(
                 "../../build-documentation.sh"
             ],
             resources: [
-                .copy("Sources/SwiftHelpers/PrivacyInfo/PrivacyInfo.xcprivacy")
+                .copy("./PrivacyInfo.xcprivacy")
             ],
             linkerSettings: [
                 .linkedFramework("SwiftUI"),

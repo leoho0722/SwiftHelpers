@@ -20,15 +20,15 @@ final class HTTP: XCTestCase {
     
     func testHttpStatus() throws {
         let statusCode = 200
-        let status = SwiftHelpers.HTTP.HTTPStatus.ok
+        let status = SwiftHelpers.HTTP.StatusCode.ok
         
-        let testStatus = SwiftHelpers.HTTP.HTTPStatus(rawValue: statusCode)
+        let testStatus = SwiftHelpers.HTTP.StatusCode(rawValue: statusCode)
         
         XCTAssertEqual(status, testStatus, "status 與 testStatus 一致")
         XCTAssertEqual(status.errorDescription, testStatus?.errorDescription)
         
         let unknownStatusCode = -1
-        let testUnknownStatus = SwiftHelpers.HTTP.HTTPStatus.unknown
+        let testUnknownStatus = SwiftHelpers.HTTP.StatusCode.unknown
         
         XCTAssertEqual(
             unknownStatusCode,

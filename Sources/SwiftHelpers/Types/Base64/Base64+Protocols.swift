@@ -71,5 +71,7 @@ public protocol Base64Convertable {
     ///   - old: original encoding
     ///   - new: encoding to convert
     /// - Returns: Converted encoded string
-    static func convert(with str: String, from old: Base64.Encoding, to new: Base64.Encoding) -> String
+    static func convert(with str: String, 
+                        from old: Base64.Encoding,
+                        to new: Base64.Encoding) -> String
 }

@@ -24,25 +24,5 @@ public extension Label where Title == Text, Icon == Image {
 
 public extension Label where Title == Text, Icon == Image {
     
-    /// Use ``SFSymbols`` and `LocalizedStringKey` to initialize `Label`
-    @available(
-        *,
-         deprecated,
-         renamed: "init(_:symbols:)",
-         message: "Deprecated since version 0.0.9, renamed to init(symbols:) and will be removed in a future version"
-    )
-    init(_ titleKey: LocalizedStringKey, systemIcon name: SFSymbols) {
-        self.init(titleKey, systemImage: name.rawValue)
-    }
     
-    /// Use ``SFSymbols`` and `String` to initialize `Label`
-    @available(
-        *,
-         deprecated,
-         renamed: "init(_:symbols:)",
-         message: "Deprecated since version 0.0.9, renamed to init(symbols:) and will be removed in a future version"
-    )
-    init<S>(_ title: S, systemIcon name: SFSymbols) where S : StringProtocol {
-        self.init(title, systemImage: name.rawValue)
-    }
 }

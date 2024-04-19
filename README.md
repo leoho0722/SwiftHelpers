@@ -14,8 +14,8 @@ Use Swift to create some amazing things!
 
 ## Package Development Environment
 
-* macOS Sonoma 14.3 (23D56)
-* Xcode 15.2 (15C500b)
+* macOS Sonoma 14.4.1 (23E224)
+* Xcode 15.3 (15E204a)
 * Swift 5.9.2 (5.9.2.2.56)
 
 ## Install
@@ -37,12 +37,12 @@ import Foundation
 import SwiftHelpers
 
 func createURLRequest<E>(with url: URL,
-                         method: HTTP.HTTPMethod,
+                         method: HTTP.Method,
                          parameters: E) -> URLRequest where E: Encodable {
     var request = URLRequest(url: url)
     request.httpMethod = method.rawValue
     request.allHTTPHeaderFields = [
-        HTTP.HTTPHeaderFields.contentType.rawValue : HTTP.HTTPContentType.json.rawValue
+        HTTP.HeaderFields.contentType.rawValue : HTTP.ContentType.json.rawValue
     ]
     
     if method != .get {

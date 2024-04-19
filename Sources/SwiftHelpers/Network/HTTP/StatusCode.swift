@@ -1,5 +1,5 @@
 //
-//  Status.swift
+//  StatusCode.swift
 //  SwiftHelpers/Network
 //
 //  Created by Leo Ho on 2023/6/13.
@@ -9,74 +9,74 @@ import Foundation
 
 public extension HTTP {
     
-    /// Define HTTP Status of HTTP Response
-    enum HTTPStatus: Int, LocalizedError, CustomNSError {
+    /// Define HTTP StatusCode of HTTP Response
+    enum StatusCode: Int, LocalizedError, CustomNSError {
         
         // MARK: Initializer
         
         public init?(rawValue: Int) {
             switch rawValue {
-            case HTTPStatus.continue.rawValue: self = .continue
-            case HTTPStatus.switchingProtocols.rawValue: self = .switchingProtocols
-            case HTTPStatus.processing.rawValue: self = .processing
-            case HTTPStatus.earlyHints.rawValue: self = .earlyHints
-            case HTTPStatus.ok.rawValue: self = .ok
-            case HTTPStatus.created.rawValue: self = .created
-            case HTTPStatus.accepted.rawValue: self = .accepted
-            case HTTPStatus.nonAuthoritativeInformation.rawValue: self = .nonAuthoritativeInformation
-            case HTTPStatus.noContent.rawValue: self = .noContent
-            case HTTPStatus.resetContent.rawValue: self = .resetContent
-            case HTTPStatus.partialContent.rawValue: self = .partialContent
-            case HTTPStatus.multiStatus.rawValue: self = .multiStatus
-            case HTTPStatus.alreadyReported.rawValue: self = .alreadyReported
-            case HTTPStatus.imUsed.rawValue: self = .imUsed
-            case HTTPStatus.multipleChoices.rawValue: self = .multipleChoices
-            case HTTPStatus.movedPermanently.rawValue: self = .movedPermanently
-            case HTTPStatus.found.rawValue: self = .found
-            case HTTPStatus.seeOther.rawValue: self = .seeOther
-            case HTTPStatus.notModified.rawValue: self = .notModified
-            case HTTPStatus.temporaryRedirect.rawValue: self = .temporaryRedirect
-            case HTTPStatus.permanentRedirect.rawValue: self = .permanentRedirect
-            case HTTPStatus.badRequest.rawValue: self = .badRequest
-            case HTTPStatus.unauthorized.rawValue: self = .unauthorized
-            case HTTPStatus.paymentRequired.rawValue: self = .paymentRequired
-            case HTTPStatus.forbidden.rawValue: self = .forbidden
-            case HTTPStatus.notFound.rawValue: self = .notFound
-            case HTTPStatus.methodNotAllowed.rawValue: self = .methodNotAllowed
-            case HTTPStatus.notAcceptable.rawValue: self = .notAcceptable
-            case HTTPStatus.proxyAuthenticationRequired.rawValue: self = .proxyAuthenticationRequired
-            case HTTPStatus.requestTimeout.rawValue: self = .requestTimeout
-            case HTTPStatus.conflict.rawValue: self = .conflict
-            case HTTPStatus.gone.rawValue: self = .gone
-            case HTTPStatus.lengthRequired.rawValue: self = .lengthRequired
-            case HTTPStatus.preconditionFailed.rawValue: self = .preconditionFailed
-            case HTTPStatus.contentTooLarge.rawValue: self = .contentTooLarge
-            case HTTPStatus.uriTooLong.rawValue: self = .uriTooLong
-            case HTTPStatus.unsupportedMediaType.rawValue: self = .unsupportedMediaType
-            case HTTPStatus.rangeNotSatisfiable.rawValue: self = .rangeNotSatisfiable
-            case HTTPStatus.expectationFailed.rawValue: self = .expectationFailed
-            case HTTPStatus.iMaTeapot.rawValue: self = .iMaTeapot
-            case HTTPStatus.misdirectedRequest.rawValue: self = .misdirectedRequest
-            case HTTPStatus.unprocessableContent.rawValue: self = .unprocessableContent
-            case HTTPStatus.locked.rawValue: self = .locked
-            case HTTPStatus.failedDependency.rawValue: self = .failedDependency
-            case HTTPStatus.tooEarly.rawValue: self = .tooEarly
-            case HTTPStatus.upgradeRequired.rawValue: self = .upgradeRequired
-            case HTTPStatus.preconditionRequired.rawValue: self = .preconditionRequired
-            case HTTPStatus.tooManyRequests.rawValue: self = .tooManyRequests
-            case HTTPStatus.requestHeaderFieldsTooLarge.rawValue: self = .requestHeaderFieldsTooLarge
-            case HTTPStatus.unavailableForLegalReasons.rawValue: self = .unavailableForLegalReasons
-            case HTTPStatus.internalServerError.rawValue: self = .internalServerError
-            case HTTPStatus.notImplemented.rawValue: self = .notImplemented
-            case HTTPStatus.badGateway.rawValue: self = .badGateway
-            case HTTPStatus.serviceUnavailable.rawValue: self = .serviceUnavailable
-            case HTTPStatus.gatewayTimeout.rawValue: self = .gatewayTimeout
-            case HTTPStatus.httpVersionNotSupported.rawValue: self = .httpVersionNotSupported
-            case HTTPStatus.variantAlsoNegotiates.rawValue: self = .variantAlsoNegotiates
-            case HTTPStatus.insufficientStorage.rawValue: self = .insufficientStorage
-            case HTTPStatus.loopDetected.rawValue: self = .loopDetected
-            case HTTPStatus.notExtended.rawValue: self = .notExtended
-            case HTTPStatus.networkAuthenticationRequired.rawValue: self = .networkAuthenticationRequired
+            case StatusCode.continue.rawValue: self = .continue
+            case StatusCode.switchingProtocols.rawValue: self = .switchingProtocols
+            case StatusCode.processing.rawValue: self = .processing
+            case StatusCode.earlyHints.rawValue: self = .earlyHints
+            case StatusCode.ok.rawValue: self = .ok
+            case StatusCode.created.rawValue: self = .created
+            case StatusCode.accepted.rawValue: self = .accepted
+            case StatusCode.nonAuthoritativeInformation.rawValue: self = .nonAuthoritativeInformation
+            case StatusCode.noContent.rawValue: self = .noContent
+            case StatusCode.resetContent.rawValue: self = .resetContent
+            case StatusCode.partialContent.rawValue: self = .partialContent
+            case StatusCode.multiStatus.rawValue: self = .multiStatus
+            case StatusCode.alreadyReported.rawValue: self = .alreadyReported
+            case StatusCode.imUsed.rawValue: self = .imUsed
+            case StatusCode.multipleChoices.rawValue: self = .multipleChoices
+            case StatusCode.movedPermanently.rawValue: self = .movedPermanently
+            case StatusCode.found.rawValue: self = .found
+            case StatusCode.seeOther.rawValue: self = .seeOther
+            case StatusCode.notModified.rawValue: self = .notModified
+            case StatusCode.temporaryRedirect.rawValue: self = .temporaryRedirect
+            case StatusCode.permanentRedirect.rawValue: self = .permanentRedirect
+            case StatusCode.badRequest.rawValue: self = .badRequest
+            case StatusCode.unauthorized.rawValue: self = .unauthorized
+            case StatusCode.paymentRequired.rawValue: self = .paymentRequired
+            case StatusCode.forbidden.rawValue: self = .forbidden
+            case StatusCode.notFound.rawValue: self = .notFound
+            case StatusCode.methodNotAllowed.rawValue: self = .methodNotAllowed
+            case StatusCode.notAcceptable.rawValue: self = .notAcceptable
+            case StatusCode.proxyAuthenticationRequired.rawValue: self = .proxyAuthenticationRequired
+            case StatusCode.requestTimeout.rawValue: self = .requestTimeout
+            case StatusCode.conflict.rawValue: self = .conflict
+            case StatusCode.gone.rawValue: self = .gone
+            case StatusCode.lengthRequired.rawValue: self = .lengthRequired
+            case StatusCode.preconditionFailed.rawValue: self = .preconditionFailed
+            case StatusCode.contentTooLarge.rawValue: self = .contentTooLarge
+            case StatusCode.uriTooLong.rawValue: self = .uriTooLong
+            case StatusCode.unsupportedMediaType.rawValue: self = .unsupportedMediaType
+            case StatusCode.rangeNotSatisfiable.rawValue: self = .rangeNotSatisfiable
+            case StatusCode.expectationFailed.rawValue: self = .expectationFailed
+            case StatusCode.iMaTeapot.rawValue: self = .iMaTeapot
+            case StatusCode.misdirectedRequest.rawValue: self = .misdirectedRequest
+            case StatusCode.unprocessableContent.rawValue: self = .unprocessableContent
+            case StatusCode.locked.rawValue: self = .locked
+            case StatusCode.failedDependency.rawValue: self = .failedDependency
+            case StatusCode.tooEarly.rawValue: self = .tooEarly
+            case StatusCode.upgradeRequired.rawValue: self = .upgradeRequired
+            case StatusCode.preconditionRequired.rawValue: self = .preconditionRequired
+            case StatusCode.tooManyRequests.rawValue: self = .tooManyRequests
+            case StatusCode.requestHeaderFieldsTooLarge.rawValue: self = .requestHeaderFieldsTooLarge
+            case StatusCode.unavailableForLegalReasons.rawValue: self = .unavailableForLegalReasons
+            case StatusCode.internalServerError.rawValue: self = .internalServerError
+            case StatusCode.notImplemented.rawValue: self = .notImplemented
+            case StatusCode.badGateway.rawValue: self = .badGateway
+            case StatusCode.serviceUnavailable.rawValue: self = .serviceUnavailable
+            case StatusCode.gatewayTimeout.rawValue: self = .gatewayTimeout
+            case StatusCode.httpVersionNotSupported.rawValue: self = .httpVersionNotSupported
+            case StatusCode.variantAlsoNegotiates.rawValue: self = .variantAlsoNegotiates
+            case StatusCode.insufficientStorage.rawValue: self = .insufficientStorage
+            case StatusCode.loopDetected.rawValue: self = .loopDetected
+            case StatusCode.notExtended.rawValue: self = .notExtended
+            case StatusCode.networkAuthenticationRequired.rawValue: self = .networkAuthenticationRequired
             default: self = .unknown
             }
         }
@@ -282,7 +282,7 @@ public extension HTTP {
         // MARK: - Implementation LocalizedError
         
         public var errorDescription: String {
-            let base = "HTTP Status Code: \(self.rawValue) "
+            let base = "[HTTP Status Code] \(self.rawValue) "
             switch self {
             case .unknown:
                 return base + "Unknown Status Code"

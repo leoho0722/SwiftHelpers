@@ -10,7 +10,7 @@ import Foundation
 public extension HTTP {
     
     /// Define the HTTP Method of the HTTP Request request
-    enum HTTPMethod: String, CustomStringConvertible {
+    enum Method: String, CustomStringConvertible {
         
         /// HTTP Method - GET
         case `get` = "GET"
@@ -40,7 +40,7 @@ public extension HTTP {
         case patch = "PATCH"
         
         public var description: String {
-            let base = "HTTP Method: "
+            let base = "[HTTP Method] "
             return base + self.rawValue
         }
     }

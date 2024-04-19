@@ -17,8 +17,8 @@ public struct JSON {
         /// Failed to convert `Encodable Object` to `Dictionary<String, Any>` through `JSONSerialization.jsonObject`
         case encodableToDictFailed
         
-        /// Failed to convert `Dictionary<String, Any>` to `Data` through `JSONSerialization.data`
-        case dictToDataFailed
+        /// Failed to encode `Encodable Object` to `Data` through `JSONSerialization.data`
+        case encodingToJSONFailed
         
         // MARK: - Implementation LocalizedError
         
@@ -26,7 +26,7 @@ public struct JSON {
             switch self {
             case .encodableToDictFailed:
                 return "Failed to convert Encodable Object to `Dictionary<String, Any>` through `JSONSerialization.jsonObject`"
-            case .dictToDataFailed:
+            case .encodingToJSONFailed:
                 return "Failed to convert `Dictionary<String, Any>` to `Data` through `JSONSerialization.data`"
             }
         }
@@ -37,7 +37,7 @@ public struct JSON {
             switch self {
             case .encodableToDictFailed:
                 return 0
-            case .dictToDataFailed:
+            case .encodingToJSONFailed:
                 return 1
             }
         }
@@ -48,9 +48,9 @@ public struct JSON {
                 return [
                     "message" : "Failed to convert Encodable Object to `Dictionary<String, Any>` through `JSONSerialization.jsonObject`"
                 ]
-            case .dictToDataFailed:
+            case .encodingToJSONFailed:
                 return [
-                    "message" : "Failed to convert `Dictionary<String, Any>` to `Data` through `JSONSerialization.data`"
+                    "message" : "Failed to encode `Encodable Object` to `Data` through `JSONSerialization.data`"
                 ]
             }
         }
@@ -60,7 +60,7 @@ public struct JSON {
         }
     }
     
-    /// Convert Encodable Object to JSON Data
+    /// Encode Encodable Object to JSON Data
     ///
     /// - Parameters:
     ///   - data: Encodable Object
@@ -71,7 +71,7 @@ public struct JSON {
             let jsonData = try JSONEncoder().encode(data)
             return jsonData
         } catch {
-            throw JSONEncodeError.dictToDataFailed
+            throw JSONEncodeError.encodingToJSONFailed
         }
     }
 }
