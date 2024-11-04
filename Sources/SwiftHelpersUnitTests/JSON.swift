@@ -6,19 +6,19 @@
 //
 
 import SwiftHelpers
-import XCTest
+import Foundation
+import Testing
 
-final class JSON: XCTestCase {
+@Suite("JSONTests")
+struct JSONTests {
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    struct JsonEncodeSample: Codable {
+        
+        let text: String
     }
     
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    func testJsonEncode() throws {
+    @Test
+    func jsonEncode() async throws {
         let sample = JsonEncodeSample(text: "123")
         let sampleJsonObject = try sample.toDictionary() as! Dictionary<String, String>
         
@@ -30,25 +30,6 @@ final class JSON: XCTestCase {
             throw SwiftHelpers.JSON.JSONEncodeError.encodableToDictFailed
         }
         
-        XCTAssertEqual(
-            sampleJsonObject,
-            testSampleJsonObject,
-            "sampleJsonObject 與 testSampleJsonObject 一致"
-        )
-    }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-}
-
-fileprivate extension JSON {
-    
-    struct JsonEncodeSample: Codable {
-        
-        let text: String
+        #expect(sampleJsonObject == testSampleJsonObject)
     }
 }

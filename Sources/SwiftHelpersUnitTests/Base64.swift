@@ -6,72 +6,94 @@
 //
 
 import SwiftHelpers
-import XCTest
+import Testing
 
-final class Base64: XCTestCase {
+extension Tag {
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    @Tag static var encode: Self
     
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    @Tag static var decode: Self
+}
+
+@Suite("Base64Tests")
+struct Base64Tests {
     
-    private let testOriginalWord = "Hello"
-    private let testBase64Word = "SGVsbG8="
-    private let testBase64RawWord = "SGVsbG8"
-    private let testBase64URLWord = "SGVsbG8="
-    private let testBase64URLRawWord = "SGVsbG8"
-    
-    func testBase64Encoded() {
-        let base64 = SwiftHelpers.Base64.base64EncodedString(from: testOriginalWord)
-        XCTAssertEqual(base64, testBase64Word)
-    }
-    
-    func testBase64RawEncoded() {
-        let base64Raw = SwiftHelpers.Base64.base64RawEncodedString(from: testOriginalWord)
-        XCTAssertEqual(base64Raw, testBase64RawWord)
-    }
-    
-    func testBase64URLEncoded() {
-        let base64URL = SwiftHelpers.Base64.base64URLEncodedString(from: testOriginalWord)
-        XCTAssertEqual(base64URL, testBase64URLWord)
-    }
-    
-    func testBase64RawURLEncoded() {
-        let base64URLRaw = SwiftHelpers.Base64.base64URLRawEncodedString(from: testOriginalWord)
-        XCTAssertEqual(base64URLRaw, testBase64URLRawWord)
-    }
-    
-    func testBase64Decoded() {
-        let base64 = SwiftHelpers.Base64.base64EncodedString(from: testOriginalWord)
-        let decoded = try! SwiftHelpers.Base64.base64DecodedString(from: base64)
-        XCTAssertEqual(decoded, testOriginalWord)
-    }
-    
-    func testBase64RawDecoded() {
-        let base64Raw = SwiftHelpers.Base64.base64RawEncodedString(from: testOriginalWord)
-        let decoded = try! SwiftHelpers.Base64.base64RawDecodedString(from: base64Raw)
-        XCTAssertEqual(decoded, testOriginalWord)
-    }
-    
-    func testBase64URLDecoded() {
-        let base64URL = SwiftHelpers.Base64.base64URLEncodedString(from: testOriginalWord)
-        let decoded = try! SwiftHelpers.Base64.base64URLDecodedString(from: base64URL)
-        XCTAssertEqual(decoded, testOriginalWord)
-    }
-    
-    func testBase64URLRawDecoded() {
-        let base64URLRaw = SwiftHelpers.Base64.base64URLRawEncodedString(from: testOriginalWord)
-        let decoded = try! SwiftHelpers.Base64.base64URLRawDecodedString(from: base64URLRaw)
-        XCTAssertEqual(decoded, testOriginalWord)
-    }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    enum TestingAnswer {
+        case original, base64, base64Raw, base64URL, base64URLRaw
+        
+        var answer: String {
+            switch self {
+            case .original:
+                return "Hello"
+            case .base64:
+                return "SGVsbG8="
+            case .base64URL:
+                return "SGVsbG8="
+            case .base64Raw:
+                return "SGVsbG8"
+            case .base64URLRaw:
+                return "SGVsbG8"
+            }
         }
+    }
+    
+    @Test(.tags(.encode))
+    func base64Encoded() async throws {
+        let base64 = SwiftHelpers.Base64.base64EncodedString(from: TestingAnswer.original.answer)
+        
+        #expect(base64 == TestingAnswer.base64.answer)
+    }
+    
+    @Test(.tags(.encode))
+    func base64RawEncoded() async throws {
+        let base64Raw = SwiftHelpers.Base64.base64RawEncodedString(from: TestingAnswer.original.answer)
+        
+        #expect(base64Raw == TestingAnswer.base64Raw.answer)
+    }
+
+    @Test(.tags(.encode))
+    func base64URLEncoded() async throws {
+        let base64URL = SwiftHelpers.Base64.base64URLEncodedString(from: TestingAnswer.original.answer)
+        
+        #expect(base64URL == TestingAnswer.base64URL.answer)
+    }
+    
+    @Test(.tags(.encode))
+    func base64URLRawEncoded() async throws {
+        let base64URLRaw = SwiftHelpers.Base64.base64URLRawEncodedString(from: TestingAnswer.original.answer)
+        
+        #expect(base64URLRaw == TestingAnswer.base64URLRaw.answer)
+    }
+
+    @Test(.tags(.decode))
+    func base64Decoded() async throws {
+        let base64 = SwiftHelpers.Base64.base64EncodedString(from: TestingAnswer.original.answer)
+        let decoded = try SwiftHelpers.Base64.base64DecodedString(from: base64)
+        
+        #expect(decoded == TestingAnswer.original.answer)
+    }
+    
+    @Test(.tags(.decode))
+    func base64RawDecoded() async throws {
+        let base64Raw = SwiftHelpers.Base64.base64RawEncodedString(from: TestingAnswer.original.answer)
+        let decoded = try SwiftHelpers.Base64.base64RawDecodedString(from: base64Raw)
+        
+        #expect(decoded == TestingAnswer.original.answer)
+    }
+
+    @Test(.tags(.decode))
+    func base64URLDecoded() async throws {
+        let base64URL = SwiftHelpers.Base64.base64URLEncodedString(from: TestingAnswer.original.answer)
+        let decoded = try SwiftHelpers.Base64.base64URLDecodedString(from: base64URL)
+        
+        #expect(decoded == TestingAnswer.original.answer)
+    }
+
+    @Test(.tags(.decode))
+    func base64URLRawDecoded() async throws {
+        let base64URLRaw = SwiftHelpers.Base64.base64URLRawEncodedString(from: TestingAnswer.original.answer)
+        let decoded = try SwiftHelpers.Base64.base64URLRawDecodedString(from: base64URLRaw)
+        
+        #expect(decoded == TestingAnswer.original.answer)
     }
 }

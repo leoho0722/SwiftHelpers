@@ -16,12 +16,11 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftHelpers",
-            path: "Sources/SwiftHelpers",
             exclude: [
                 "../../build-documentation.sh"
             ],
             resources: [
-                .process("./PrivacyInfo.xcprivacy")
+                .copy("PrivacyInfo.xcprivacy")
             ],
             linkerSettings: [
                 .linkedFramework("SwiftUI"),
@@ -34,7 +33,6 @@ let package = Package(
             dependencies: [
                 .target(name: "SwiftHelpers")
             ],
-            path: "Sources/SwiftHelpersUnitTests",
             exclude: [
                 "../../build-documentation.sh"
             ],

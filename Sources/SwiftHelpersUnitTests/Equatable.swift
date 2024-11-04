@@ -6,25 +6,23 @@
 //
 
 import SwiftHelpers
-import XCTest
+import Testing
 
-final class Equatable: XCTestCase {
+@Suite("EquatableTests")
+struct EquatableTests {
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    func testIsEqual() throws {
+    @Test
+    func isEqualTo() async throws {
         let a = "123"
         let b = "123"
-        XCTAssertTrue(a.isEqual(to: b), "a isEqual b")
+        #expect(a.isEqual(to: b) == true)
         
         let c = 123
         let d = 123
-        XCTAssertTrue(c.isEqual(to: d), "c isEqual d")
+        #expect(c.isEqual(to: d) == true)
+        
+        let e = "123"
+        let f = "456"
+        #expect(e.isEqual(to: f) == false)
     }
 }
